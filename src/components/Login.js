@@ -4,7 +4,12 @@ import { BG_SRCSET, BG_URL } from "../constants";
 import { validateName, validationCheck } from "../utils/validate";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase'
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../store/userSlice";
 const Login = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [error, setError] = useState(null);
 
@@ -31,12 +36,19 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up 
           const user = userCredential.user;
-          console.log('User created : ',user);
-          
+          console.log('User created : ', user);
+
           updateProfile(auth.currentUser, { displayName: fullName.current.value })
             .then(() => {
               console.log("Profile Updated");
-            })
+              const { uid: uid, email, displayName } = auth.currentUser
+              dispatch(addUser({ uid: uid, email: email, displayName: displayName }))
+              navigate("/browse")
+            }).catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              setError(`ErrorCode: ${errorCode} ErrorMessage: ${errorMessage}`)
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -48,8 +60,9 @@ const Login = () => {
       signInWithEmailAndPassword(auth, email.current.value, password.current.value)
         .then((userCredential) => {
           // Signed in 
-          const user = userCredential.user;
-          console.log(user);
+          // const user = userCredential.user;
+          console.log("Signed In");
+          navigate("/browse")
         })
         .catch((error) => {
           const errorCode = error.code;

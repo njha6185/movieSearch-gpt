@@ -9,3 +9,7 @@
 - useRef
 - Firebase Setup
 - Deploy App -[Netflix-GPT Web](https://netflixgpt-7bff8.web.app/)
+- Signup and login user account using firebase
+- redux store setup with user slice
+- sign out
+- update profile and store
