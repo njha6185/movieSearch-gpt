@@ -29,9 +29,7 @@ function Header() {
 
   const handleLogout = () => {
     signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
+      .then(() => {})
       .catch((e) => {
         console.log(e);
       });
