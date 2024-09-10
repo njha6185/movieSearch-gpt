@@ -1,7 +1,8 @@
 # Netflix GPT
+
 - Create React App
 - Confih tailwind css
--  Header
+- Header
 - Routing
 - Login Form
 - Sign up form
@@ -13,3 +14,5 @@
 - redux store setup with user slice
 - sign out
 - update profile and store
+- Bug fix by moving navigate to header so that if user is not logged in and user try to access browse page then it will get redirected to login page
+- remove the onAuthChangeListner event when component get unmount

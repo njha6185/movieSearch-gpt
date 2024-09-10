@@ -13,7 +13,7 @@ function Header() {
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubsCribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         //user signed in
         const { uid: uid, email, displayName } = user;
@@ -24,6 +24,8 @@ function Header() {
         dispatch(removeUser());
         navigate("/");
       }
+      //unsubsCribe when component unmounts, so that performance can be improved by memory cleaning
+      return () => unsubsCribe();
     });
   }, []);
 
