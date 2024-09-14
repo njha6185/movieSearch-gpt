@@ -25,4 +25,6 @@
 - fetch trailer vide0 data and add in store
 - Embedded YTB video and autoplay
 - Enhance Maincontainer UI
+- custom hook for tv series and movies
 - added tv series as well in second container
+- TMDb image cdn url
