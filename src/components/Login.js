@@ -45,7 +45,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log("User created : ", user);
+          console.log("User created ");
 
           updateProfile(auth.currentUser, {
             displayName: fullName.current.value,

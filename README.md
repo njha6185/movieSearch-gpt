@@ -28,3 +28,6 @@
 - custom hook for tv series and movies
 - added tv series as well in second container
 - TMDb image cdn url
+- GPT search feature
+- MultiLingual Feature
+- Search bar for GPT

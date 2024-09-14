@@ -25,6 +25,11 @@ const getTvSeriesUrlByType = (type)=>{
 }
 const TYPE = ['upcoming','top_rated']
 const SERIES_TYPE = ['airing_today','on_the_air','popular','top_rated']
+const SUPPORTED_LANGUAGES = [
+  { identifier:"en",name:"English"},
+  { identifier:"hindi",name:"हिन्दी"},
+  { identifier:"spanish",name:"español"}
+]
 module.exports = {
   LOGO_URL,
   BG_URL,
@@ -39,4 +44,5 @@ module.exports = {
   SERIES_TYPE,
   getTvSeriesUrlByType,
   SERIES_TYPE,
+  SUPPORTED_LANGUAGES
 };
