@@ -24,4 +24,5 @@
 - plan main and secondary container
 - fetch trailer vide0 data and add in store
 - Embedded YTB video and autoplay
-- Enhance Miancontainer UI
+- Enhance Maincontainer UI
+- added tv series as well in second container

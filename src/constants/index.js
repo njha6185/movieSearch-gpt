@@ -14,7 +14,17 @@ const TBMD_OPTIONS = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNmNkMmQ5YjFjY2EyMDM1ZWQ2YjYxYjExNWM5MGRjYiIsIm5iZiI6MTcyNjA0NjU1MS44Nzk0NjgsInN1YiI6IjY2ZTA1ODA3YTAwNTc0NDdkYzBkOWQwMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.s6o5Y0CgLKP89MxXPWi9cq61Wscsuk_hF2DBqqQv1to",
   },
 };
-const NOW_PLAYING_MOVIE_URL = "https://api.themoviedb.org/3/movie/now_playing";
+const NOW_PLAYING_MOVIE_URL = "https://api.themoviedb.org/3/movie/now_playing?page=1";
+const IMAGE_URL="https://image.tmdb.org/t/p/w500"
+const POPULAR_MOVIE_URL='https://api.themoviedb.org/3/movie/popular?page=1';
+const getMovieUrlByType = (type)=>{
+  return `https://api.themoviedb.org/3/movie/${type}?page=1`
+}
+const getTvSeriesUrlByType = (type)=>{
+  return `https://api.themoviedb.org/3/tv/${type}?page=1`
+}
+const TYPE = ['upcoming','top_rated']
+const SERIES_TYPE = ['airing_today','on_the_air','popular','top_rated']
 module.exports = {
   LOGO_URL,
   BG_URL,
@@ -22,4 +32,11 @@ module.exports = {
   PROFILE_URL,
   TBMD_OPTIONS,
   NOW_PLAYING_MOVIE_URL,
+  IMAGE_URL,
+  POPULAR_MOVIE_URL,
+  getMovieUrlByType,
+  TYPE,
+  SERIES_TYPE,
+  getTvSeriesUrlByType,
+  SERIES_TYPE,
 };
