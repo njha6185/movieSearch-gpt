@@ -15,4 +15,13 @@
 - sign out
 - update profile and store
 - Bug fix by moving navigate to header so that if user is not logged in and user try to access browse page then it will get redirected to login page
-- remove the onAuthChangeListner event when component get unmount
+- unsubscribe/remove the onAuthChangeListner event when component get unmount
+- TMDB registration and create and app and get access token
+- Get Now playing movie list data
+- Custom hook for now playing movie
+- create movie slice
+- update movie store
+- plan main and secondary container
+- fetch trailer vide0 data and add in store
+- Embedded YTB video and autoplay
+- Enhance Miancontainer UI
