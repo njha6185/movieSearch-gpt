@@ -5,14 +5,14 @@ const MovieList = ({ title, movies, isSearchResult = false }) => {
     
     if (isSearchResult) {
         return (
-            <div className="px-4">
-                <h1 className="text-xl py-1 text-white font-bold">{title}</h1>
-                <div className="grid grid-flow-row-dense sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7">
+            <div className="">
+                <h1 className="text-xl px-4 py-1 text-white font-bold">{title}</h1>
+                <div className="grid grid-flow-row-dense grid-cols-2 md:grid-cols-4 lg:grid-cols-7">
                     {
                         movies?.map((movie) => (
-                            movie?.poster_path && (<div key={movie.id} className="w-48 flex flex-col p-2">
+                            movie?.poster_path && (<div key={movie.id} className="w-auto flex flex-col border-2 border-gray-500 m-1">
                                 <MovieCard name={movie.name} posterPath={movie?.poster_path} />
-                                <h1 className="text-white ">{movie.title}</h1>
+                                <h1 className="text-white mr-3">{movie.title}</h1>
                             </div>)
                         ))
                     }

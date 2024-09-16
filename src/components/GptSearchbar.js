@@ -37,16 +37,16 @@ const GptSearchbar = () => {
     setIsSearchCompleted(false)
   }
   return (
-    <div className='pb-[1%] pr-[9%] pt-[9%] pl-[9%] justify-center'>
-        <form className='px-[15%] grid grid-cols-12' onSubmit={(e)=>{e.preventDefault()}}>
-            <input ref={gptSearchtext} type='text' className='p-4 m-4 col-span-9' placeholder={LANG_CONSTANT[lang].gptSearchPlaceHolder}/>
-            <button className='col-span-3 py-4 px-4 m-4 bg-red-700 text-white rounded-lg'
+    <div className='pb-[1%] pr-[4%] md:pr-[9%] pt-[35%] md:pt-[9%] pl-0 md:pl-[9%] justify-center'>
+        <form className='px-0 md:px-[15%] grid grid-cols-12' onSubmit={(e)=>{e.preventDefault()}}>
+            <input ref={gptSearchtext} type='text' className='p-3 mx-5 mt-5 mb-2 md:mb-5 col-span-10 md:col-span-9 rounded-lg' placeholder={LANG_CONSTANT[lang].gptSearchPlaceHolder}/>
+            <button className='col-span-2 md:col-span-3 md:px-4 mb-2 mt-5 md:m-5 bg-red-700 text-white rounded-lg'
             onClick={handleGPTSearchClick}
             >
               {isSearchCompleted?"Searching..":LANG_CONSTANT[lang].search}
             </button>
         </form>
-        {errorMsg && <p className='bg-red-700 bg-gradient-to-r from-red-200 text-center text-black font-bold rounded-lg p-2'>{errorMsg}</p>}
+        {errorMsg && <p className='bg-red-700 bg-gradient-to-r from-red-200 text-center text-black font-bold rounded-lg p-2 ml-5'>{errorMsg}</p>}
     </div>
   )
 }
