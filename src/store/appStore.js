@@ -11,6 +11,7 @@ const appStore = configureStore({
     gpt: gptReducer,
     appConfig: appConfigReducer
   },
+  devTools: process.env.NODE_ENV !== 'production',
 });
 
 export default appStore;
