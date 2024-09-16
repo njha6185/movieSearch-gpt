@@ -35,7 +35,10 @@ const Login = () => {
       message = validateName(fullName.current.value);
     }
     setError(message);
-    if (message !== null) return;
+    if (message !== null){
+      setIsLoginCompleted(false)
+      return
+    };
     //Sign Up or Sign In
     if (!isSignInForm) {
       // setIsLoginCompleted(true)
@@ -110,9 +113,9 @@ const Login = () => {
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-450 h-717 flex flex-col p-12 bg-black bg-opacity-80 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white"
+        className="w-450 h-717 flex flex-col p-2 md:p-12 bg-black bg-opacity-80 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white"
       >
-        <h1 className="text-3xl relative font-bold p-2 m-2 w-full">
+        <h1 className="text-xl md:text-3xl relative font-bold p-2 m-2 w-full">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && (
@@ -120,33 +123,33 @@ const Login = () => {
             ref={fullName}
             type="text"
             placeholder="Full Name"
-            className="p-2 m-2 w-full bg-black bg-opacity-80 border-2 border-gray-500 rounded"
+            className="mb-1 py-2 md:p-2 md:m-2 w-full bg-black bg-opacity-80 border-2 border-gray-500 rounded"
           />
         )}
         <input
           ref={email}
           type="text"
           placeholder="Email address"
-          className="p-2 m-2 w-full bg-black bg-opacity-80 border-2 border-gray-500 rounded"
+          className="mb-1 mt-1 py-2 md:p-2 md:m-2 w-full bg-black bg-opacity-80 border-2 border-gray-500 rounded"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
-          className="p-2 m-2 w-full rounded bg-black bg-opacity-80 border-2 border-gray-500"
+          className="mb-1 mt-1 py-2 md:p-2 md:m-2  w-full rounded bg-black bg-opacity-80 border-2 border-gray-500"
         />
         {error !== null && (
           <p className="text-red-500 px-2 w-full text-bold">{error}</p>
         )}
         <button
-          className="p-2 m-2 w-full bg-red-700 rounded"
+          className="mb-1 mt-1 py-2 md:p-2 md:m-2 w-full bg-red-700 rounded"
           onClick={handleButtonClick}
         >
           {isLoginCompleted? "Loading..." : (isSignInForm ? "Sign In" :"Sign Up")}
         </button>
-        <span className="text-center p-2 m-2 w-full text-gray-500"> OR </span>
+        <span className="text-center mb-1 mt-1 py-2 md:p-2 md:m-2 w-full text-gray-500"> OR </span>
         <p
-          className="p-2 m-2 w-full hover:cursor-pointer"
+          className="mb-1 mt-1 py-2 md:p-2 md:m-2 w-full hover:cursor-pointer"
           onClick={toggleSignInForm}
         >
           {isSignInForm
