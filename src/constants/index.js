@@ -11,7 +11,7 @@ const TBMD_OPTIONS = {
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNmNkMmQ5YjFjY2EyMDM1ZWQ2YjYxYjExNWM5MGRjYiIsIm5iZiI6MTcyNjA0NjU1MS44Nzk0NjgsInN1YiI6IjY2ZTA1ODA3YTAwNTc0NDdkYzBkOWQwMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.s6o5Y0CgLKP89MxXPWi9cq61Wscsuk_hF2DBqqQv1to",
+      "Bearer "+process.env.REACT_APP_TBDM_AUTH_TOKEN,
   },
 };
 const NOW_PLAYING_MOVIE_URL = "https://api.themoviedb.org/3/movie/now_playing?page=1";
@@ -30,6 +30,8 @@ const SUPPORTED_LANGUAGES = [
   { identifier:"hindi",name:"हिन्दी"},
   { identifier:"spanish",name:"español"}
 ]
+const GPT_API_KEY=process.env.REACT_APP_BARD_API_KEY
+const BARD_MODEL_NAME="gemini-1.5-flash"
 module.exports = {
   LOGO_URL,
   BG_URL,
@@ -43,6 +45,7 @@ module.exports = {
   TYPE,
   SERIES_TYPE,
   getTvSeriesUrlByType,
-  SERIES_TYPE,
-  SUPPORTED_LANGUAGES
+  SUPPORTED_LANGUAGES,
+  GPT_API_KEY,
+  BARD_MODEL_NAME
 };

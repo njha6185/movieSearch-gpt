@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getTvSeriesUrlByType, SERIES_TYPE, TBMD_OPTIONS } from "../constants";
 import { useDispatch } from "react-redux";
-import { addArrivingtodaySeries, addOnTheAirSeries, addPopularSeries, addTopRatedSeries, addTopRateMovie, addUpcomingMovie } from "../store/movieSlice";
+import { addArrivingtodaySeries, addOnTheAirSeries, addPopularSeries, addTopRatedSeries} from "../store/movieSlice";
 import { useEffect } from "react";
 
 const useTvSeriesByType = (type) => {

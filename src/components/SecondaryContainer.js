@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux'
 import MovieList from './MovieList'
-import { SERIES_TYPE } from '../constants'
 
 function SecondaryContainer() {
   const movies= useSelector((store)=>store.movie)

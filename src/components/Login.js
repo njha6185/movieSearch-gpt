@@ -13,6 +13,7 @@ import { addUser } from "../store/userSlice";
 const Login = () => {
   const dispatch = useDispatch();
   const [isSignInForm, setIsSignInForm] = useState(true);
+  const [isLoginCompleted, setIsLoginCompleted]=useState(false)
   const [error, setError] = useState(null);
 
   const email = useRef(null);
@@ -25,6 +26,7 @@ const Login = () => {
   };
 
   const handleButtonClick = () => {
+    setIsLoginCompleted(true)
     let message = validationCheck({
       email: email.current.value,
       password: password.current.value,
@@ -36,6 +38,7 @@ const Login = () => {
     if (message !== null) return;
     //Sign Up or Sign In
     if (!isSignInForm) {
+      // setIsLoginCompleted(true)
       //sign up
       createUserWithEmailAndPassword(
         auth,
@@ -56,11 +59,13 @@ const Login = () => {
               dispatch(
                 addUser({ uid: uid, email: email, displayName: displayName })
               );
+              setIsLoginCompleted(false)
             })
             .catch((error) => {
               const errorCode = error.code;
               const errorMessage = error.message;
               setError(`ErrorCode: ${errorCode} ErrorMessage: ${errorMessage}`);
+              setIsLoginCompleted(false)
             });
         })
         .catch((error) => {
@@ -70,6 +75,7 @@ const Login = () => {
         });
     } else {
       //sign in
+      
       signInWithEmailAndPassword(
         auth,
         email.current.value,
@@ -79,13 +85,16 @@ const Login = () => {
           // Signed in
           // const user = userCredential.user;
           console.log("Signed In");
+          setIsLoginCompleted(false)
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setError(`ErrorCode: ${errorCode} ErrorMessage: ${errorMessage}`);
+          setIsLoginCompleted(false)
         });
     }
+    // setIsLoginCompleted(false)
   };
 
   return (
@@ -133,7 +142,7 @@ const Login = () => {
           className="p-2 m-2 w-full bg-red-700 rounded"
           onClick={handleButtonClick}
         >
-          {isSignInForm ? "Sign In" : "Sign Up"}
+          {isLoginCompleted? "Loading..." : (isSignInForm ? "Sign In" :"Sign Up")}
         </button>
         <span className="text-center p-2 m-2 w-full text-gray-500"> OR </span>
         <p

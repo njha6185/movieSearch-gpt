@@ -31,3 +31,7 @@
 - GPT search feature
 - MultiLingual Feature
 - Search bar for GPT
+- show search movie in grid format
+- get movie name from bard
+- search movie using tmdb api and save  into redux
+- show movies in grid format from redux
